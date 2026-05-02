@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>筋トレ解剖図鑑 | 効くフォームが、ひと目でわかる。</title>
+  <meta name="description" content="自重・ダンベル・マシン筋トレの正しいフォームを、画像と手順で解説する筋トレ図鑑。おすすめアイテムも紹介。">
+  <meta property="og:title" content="筋トレ解剖図鑑">
+  <meta property="og:description" content="正しいフォーム、効かせるコツ、NG例を1手順ずつ確認できる筋トレ図鑑。">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top">
+      <span class="brand-mark"></span>
+      <span>筋トレ解剖図鑑</span>
+    </a>
+    <nav class="site-nav">
+      <a href="#exercises">種目</a>
+      <a href="#banners">おすすめ</a>
+      <a href="#detail">解説</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">TRAINING FORM ATLAS</p>
+        <h1>効くフォームが、<span>ひと目で</span>わかる。</h1>
+        <p class="lead">自重・ダンベル・マシンの動きを、フォーム解説ビジュアルと手順テキストで分解。初心者でも真似しやすい筋トレ図鑑です。</p>
+        <div class="hero-actions">
+          <a class="primary-action" href="#exercises">種目を探す</a>
+        </div>
+        <div class="hero-stats" aria-label="公開状況">
+          <div><strong id="publishedCount">0</strong><span>公開種目</span></div>
+          <div><strong>3</strong><span>カテゴリ</span></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <picture>
+          <source media="(max-width: 680px)" srcset="assets/generated/homepage-mobile.png">
+          <img src="assets/generated/homepage-board.png" alt="筋トレ解剖図鑑のデザイン">
+        </picture>
+      </div>
+    </section>
+
+    <section class="mobile-showcase">
+      <div>
+        <p class="eyebrow">RESPONSIVE</p>
+        <h2>スマホでも、フォームが見える。</h2>
+        <p>スマホ用の見え方も想定。種目カード、広告枠、手順解説が縦に自然に並びます。</p>
+      </div>
+      <img src="assets/generated/home-mobile.png" alt="筋トレ解剖図鑑のスマホデザイン">
+    </section>
+
+    <section class="section" id="banners">
+      <div class="banner-grid" id="bannerGrid"></div>
+    </section>
+
+    <section class="section" id="exercises">
+      <div class="section-head row">
+        <div>
+          <p class="eyebrow">EXERCISES</p>
+          <h2>トレーニング解説</h2>
+          <p>カテゴリを選んで、各種目の画像付き解説を確認できます。</p>
+        </div>
+        <div class="filters" role="group" aria-label="カテゴリ">
+          <button type="button" class="filter is-active" data-filter="all">すべて</button>
+          <button type="button" class="filter" data-filter="自重">自重</button>
+          <button type="button" class="filter" data-filter="ダンベル">ダンベル</button>
+          <button type="button" class="filter" data-filter="マシン">マシン</button>
+        </div>
+      </div>
+      <div class="search-row">
+        <label class="search-box">
+          <span>種目検索</span>
+          <input id="exerciseSearch" type="search" placeholder="例: プッシュアップ、胸、ダンベル">
+        </label>
+        <p id="resultCount" class="result-count"></p>
+      </div>
+      <div class="exercise-grid" id="exerciseGrid"></div>
+      <p class="empty-state" id="emptyState">該当する種目がありません。</p>
+    </section>
+
+    <section class="section detail-section" id="detail">
+      <div class="detail-layout">
+        <aside class="detail-copy">
+          <p class="eyebrow" id="detailCategory">BODYWEIGHT</p>
+          <h2 id="detailName">プッシュアップ</h2>
+          <p id="detailLead"></p>
+          <dl>
+            <div><dt>鍛える部位</dt><dd id="detailMuscles"></dd></div>
+            <div><dt>難易度</dt><dd id="detailLevel"></dd></div>
+            <div><dt>目安</dt><dd id="detailSets"></dd></div>
+          </dl>
+          <a class="primary-action wide" id="detailAffiliateLink" href="#banners">関連アイテムを見る</a>
+        </aside>
+        <div class="detail-main">
+          <figure class="detail-figure">
+            <img id="detailImage" src="assets/generated/pushup-detail-real.png" alt="プッシュアップの画像付き解説">
+          </figure>
+          <div class="steps-panel">
+            <h3>1手順ずつ確認</h3>
+            <ol id="stepsList"></ol>
+          </div>
+          <div class="ng-panel">
+            <h3>よくあるNG</h3>
+            <ul id="ngList"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>筋トレ解剖図鑑</strong>
+      <p>当サイトは広告を含みます。運動中に痛みが出る場合は中止し、必要に応じて医師や専門家に相談してください。</p>
+    </div>
+    <button class="admin-access" id="adminAccess" type="button" aria-label="サイト情報">v1.0</button>
+  </footer>
+
+  <div class="quiet-gate" id="adminGate" hidden>
+    <form class="quiet-gate-panel" id="adminGateForm">
+      <button class="quiet-gate-close" id="adminGateClose" type="button" aria-label="閉じる">×</button>
+      <label>
+        <span>code</span>
+        <input id="adminGateCode" type="password" autocomplete="current-password">
+      </label>
+      <button type="submit">open</button>
+      <p id="adminGateError" role="alert"></p>
+    </form>
+  </div>
+
+  <script src="affiliate-config.js"></script>
+  <script src="site-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
