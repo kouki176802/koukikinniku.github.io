@@ -44,11 +44,13 @@ function fileNameFromPath(path) {
 
 function applyImageFallback(img) {
   if (!img) return;
-  img.addEventListener("error", () => {
+  const fallback = () => {
     const fallbackSrc = img.dataset.fallbackSrc || fileNameFromPath(img.getAttribute("src"));
     if (!fallbackSrc || img.src.endsWith(`/${fallbackSrc}`)) return;
     img.src = fallbackSrc;
-  });
+  };
+  img.addEventListener("error", fallback);
+  if (img.complete && img.naturalWidth === 0) fallback();
 }
 
 document.querySelectorAll("img").forEach(applyImageFallback);
