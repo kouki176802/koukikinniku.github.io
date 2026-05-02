@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">画像準備中</title>
+  <desc id="desc">筋トレ解剖図鑑のトレーニング解説画像プレースホルダー</desc>
+  <defs>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0v42" fill="none" stroke="#e8e3dc" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#f3efe9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#fade)"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity=".72"/>
+  <rect x="64" y="64" width="1072" height="632" rx="18" fill="#fff" stroke="#171717" stroke-width="4"/>
+  <text x="104" y="152" fill="#171717" font-family="Arial, 'Hiragino Sans', sans-serif" font-size="52" font-weight="900">筋トレ解剖図鑑</text>
+  <text x="104" y="204" fill="#1e6e91" font-family="Arial, sans-serif" font-size="18" font-weight="900" letter-spacing="4">TRAINING FORM ATLAS</text>
+  <text x="104" y="334" fill="#171717" font-family="Arial, 'Hiragino Sans', sans-serif" font-size="78" font-weight="900">画像準備中</text>
+  <text x="104" y="410" fill="#e74235" font-family="Arial, 'Hiragino Sans', sans-serif" font-size="42" font-weight="900">手順テキストは公開中。</text>
+  <text x="104" y="474" fill="#68707d" font-family="Arial, 'Hiragino Sans', sans-serif" font-size="30" font-weight="700">フォーム画像は順次差し替えます。</text>
+  <g transform="translate(820 248)">
+    <circle cx="120" cy="78" r="52" fill="#f3efe9" stroke="#171717" stroke-width="4"/>
+    <path d="M118 132c-76 28-98 96-102 190h208c-4-94-26-162-106-190z" fill="#f3efe9" stroke="#171717" stroke-width="4"/>
+    <path d="M65 182c-42 34-62 84-62 140M175 182c42 34 62 84 62 140" fill="none" stroke="#e74235" stroke-width="18" stroke-linecap="round"/>
+    <path d="M84 142c20 18 52 18 72 0" fill="none" stroke="#1e6e91" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>
