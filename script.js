@@ -75,7 +75,13 @@ function renderHeroStats() {
 function renderBanners() {
   bannerGrid.innerHTML = data.banners.map((banner) => `
     <a class="banner-card ${banner.accent}" href="${banner.url || "#"}">
-      <span>${banner.type}</span>
+      <div class="banner-product">
+        <span>${banner.type}</span>
+        <div class="product-art ${banner.visual || banner.id}" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </div>
+        <b>${banner.productName || banner.title}</b>
+      </div>
       <strong>${banner.title}</strong>
       <p>${banner.description}</p>
       <em>${banner.cta}</em>
