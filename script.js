@@ -38,6 +38,21 @@ let currentFilter = "all";
 let currentId = data.exercises[0]?.id;
 let currentSearch = "";
 
+function fileNameFromPath(path) {
+  return (path || "").split("/").pop();
+}
+
+function applyImageFallback(img) {
+  if (!img) return;
+  img.addEventListener("error", () => {
+    const fallbackSrc = img.dataset.fallbackSrc || fileNameFromPath(img.getAttribute("src"));
+    if (!fallbackSrc || img.src.endsWith(`/${fallbackSrc}`)) return;
+    img.src = fallbackSrc;
+  });
+}
+
+document.querySelectorAll("img").forEach(applyImageFallback);
+
 function hasPublishedImage(exercise) {
   return (exercise.image || "").includes("assets/exercises-v2/");
 }
@@ -72,7 +87,7 @@ function renderExercises() {
   emptyState.classList.toggle("is-visible", list.length === 0);
   exerciseGrid.innerHTML = list.map((exercise) => `
     <button class="exercise-card ${exercise.id === currentId ? "is-active" : ""}" type="button" data-id="${exercise.id}">
-      <img src="${exercise.image || placeholderImage}" alt="${exercise.name}の画像付き解説" loading="lazy" onerror="this.src='${placeholderImage}'">
+      <img src="${exercise.image || placeholderImage}" alt="${exercise.name}の画像付き解説" loading="lazy" onerror="this.onerror=null; this.src='${fileNameFromPath(exercise.image) || placeholderImage}'">
       <div>
         <span>${exercise.category}${hasPublishedImage(exercise) ? " / 画像あり" : " / 画像準備中"}</span>
         <h3>${exercise.name}</h3>
@@ -97,9 +112,11 @@ function selectExercise(id, shouldScroll = true) {
   detail.level.textContent = exercise.level;
   detail.sets.textContent = exercise.sets;
   detail.image.src = exercise.image || placeholderImage;
+  detail.image.dataset.fallbackSrc = fileNameFromPath(exercise.image);
   detail.image.alt = `${exercise.name}の画像付き解説`;
   detail.image.onerror = () => {
-    detail.image.src = placeholderImage;
+    detail.image.onerror = null;
+    detail.image.src = detail.image.dataset.fallbackSrc || placeholderImage;
   };
   detail.affiliate.href = exercise.affiliateUrl || "#banners";
 
