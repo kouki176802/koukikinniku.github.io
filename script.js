@@ -72,6 +72,15 @@ function renderHeroStats() {
   publishedCount.textContent = String(data.exercises.length);
 }
 
+function displayBannerUrl(url) {
+  if (!url || url === "#") return "リンク未設定";
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
+
 function renderBanners() {
   bannerGrid.innerHTML = data.banners.map((banner) => `
     <a class="banner-card ${banner.accent}" href="${banner.url || "#"}">
@@ -84,6 +93,7 @@ function renderBanners() {
       </div>
       <strong>${banner.title}</strong>
       <p>${banner.description}</p>
+      <small>${displayBannerUrl(banner.url)}</small>
       <em>${banner.cta}</em>
     </a>
   `).join("");

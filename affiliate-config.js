@@ -14,23 +14,23 @@ window.KINTORE_AFFILIATE_CONFIG = {
     {
       id: "dumbbell",
       type: "アフィリエイト",
-      title: "可変式ダンベル スターター導線",
+      title: "可変式ダンベル スターターセット",
       productName: "可変式ダンベル",
       visual: "dumbbell",
       description: "ダンベルプレス、ロウ、サイドレイズなどの記事から自然に誘導できます。",
       cta: "ダンベルを見る",
-      url: "#",
+      url: "https://amzn.to/4cNspVS",
       accent: "blue"
     },
     {
       id: "gym",
       type: "アフィリエイト",
-      title: "ジム体験・パーソナル体験",
-      productName: "筋トレ必須ギア",
+      title: "トレーニーには必須アイテム",
+      productName: "筋トレ必須アイテム",
       visual: "gear",
       description: "マシン筋トレ記事に合わせて、ジム体験やパーソナル体験へ誘導する枠です。",
-      cta: "体験を探す",
-      url: "#",
+      cta: "必須アイテム",
+      url: "https://amzn.to/4tFwfGm",
       accent: "black"
     }
   ],
