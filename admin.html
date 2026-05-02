@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>管理画面 | 筋トレ解剖図鑑</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-locked">
+  <div class="admin-lock" id="adminLock">
+    <form class="admin-lock-panel" id="adminLogin">
+      <p class="eyebrow">ADMIN ONLY</p>
+      <h1>管理画面</h1>
+      <p>編集する場合は管理パスコードを入力してください。</p>
+      <label>パスコード<input id="adminPassword" type="password" autocomplete="current-password"></label>
+      <button class="primary-action admin-button" type="submit">入室する</button>
+      <p class="lock-note">公開ページからは管理画面への導線を非表示にしています。</p>
+    </form>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span>筋トレ解剖図鑑 管理</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">サイトを見る</a>
+      <button class="admin-link reset-button" type="button" id="resetData">初期化</button>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <section class="admin-hero">
+      <p class="eyebrow">DASHBOARD</p>
+      <h1>アクセス数と内容を管理</h1>
+      <p>この管理画面では、アクセス数の確認、トレーニング解説の編集、広告・アフィリエイト枠の編集ができます。</p>
+    </section>
+
+    <section class="admin-grid">
+      <article class="admin-card">
+        <h2>アクセス状況</h2>
+        <div class="stats-grid">
+          <div><span>総アクセス</span><strong id="totalVisits">0</strong></div>
+          <div><span>最終アクセス</span><strong id="lastVisit">-</strong></div>
+        </div>
+        <h3>種目別クリック</h3>
+        <div id="exerciseStats" class="stats-list"></div>
+      </article>
+
+      <article class="admin-card">
+        <h2>広告・アフィリエイト編集</h2>
+        <label>編集する枠
+          <select id="bannerSelect"></select>
+        </label>
+        <label>種別<input id="bannerType" type="text"></label>
+        <label>タイトル<input id="bannerTitle" type="text"></label>
+        <label>説明<textarea id="bannerDescription" rows="4"></textarea></label>
+        <label>ボタン文言<input id="bannerCta" type="text"></label>
+        <label>リンクURL<input id="bannerUrl" type="text"></label>
+        <button class="primary-action admin-button" type="button" id="saveBanner">広告枠を保存</button>
+      </article>
+
+      <article class="admin-card wide-card">
+        <h2>トレーニング解説編集</h2>
+        <div class="editor-layout">
+          <div>
+            <label>編集する種目
+              <select id="exerciseSelect"></select>
+            </label>
+            <label>種目名<input id="exerciseName" type="text"></label>
+            <label>カテゴリ<input id="exerciseCategory" type="text"></label>
+            <label>鍛える部位<input id="exerciseMuscles" type="text"></label>
+            <label>難易度<input id="exerciseLevel" type="text"></label>
+            <label>目安<input id="exerciseSets" type="text"></label>
+            <label>画像パス<input id="exerciseImage" type="text"></label>
+          </div>
+          <div>
+            <label>説明<textarea id="exerciseLead" rows="5"></textarea></label>
+            <label>手順 1行1ステップ<textarea id="exerciseSteps" rows="8"></textarea></label>
+            <label>NG例 1行1つ<textarea id="exerciseNg" rows="5"></textarea></label>
+            <label>関連リンク<input id="exerciseAffiliateUrl" type="text"></label>
+          </div>
+        </div>
+        <button class="primary-action admin-button" type="button" id="saveExercise">種目を保存</button>
+      </article>
+
+      <article class="admin-card wide-card">
+        <h2>データ管理</h2>
+        <p>編集内容はこのブラウザのローカル保存です。本格公開時はWordPress、microCMS、Supabaseなどに移すと複数人管理・正式なアクセス解析ができます。</p>
+        <div class="data-actions">
+          <button class="secondary-action" type="button" id="exportData">JSONを書き出す</button>
+          <button class="secondary-action" type="button" id="importData">JSONを読み込む</button>
+        </div>
+        <textarea id="jsonArea" rows="8" placeholder="書き出し・読み込み用JSON"></textarea>
+      </article>
+    </section>
+  </main>
+
+  <script src="affiliate-config.js"></script>
+  <script src="site-data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
