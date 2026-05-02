@@ -84,17 +84,23 @@ function displayBannerUrl(url) {
 function renderBanners() {
   bannerGrid.innerHTML = data.banners.map((banner) => `
     <a class="banner-card ${banner.accent}" href="${banner.url || "#"}">
-      <div class="banner-product">
+      <div class="banner-info">
         <span>${banner.type}</span>
-        <div class="product-art ${banner.visual || banner.id}" aria-hidden="true">
-          <i></i><i></i><i></i>
+        <strong>${banner.productName || banner.title}</strong>
+        <p>${banner.description}</p>
+        <div class="banner-meta">
+          <b>${banner.price || "価格はリンク先で確認"}</b>
+          <small>${banner.shop || displayBannerUrl(banner.url)}</small>
         </div>
-        <b>${banner.productName || banner.title}</b>
+        <em>${banner.cta}</em>
       </div>
-      <strong>${banner.title}</strong>
-      <p>${banner.description}</p>
-      <small>${displayBannerUrl(banner.url)}</small>
-      <em>${banner.cta}</em>
+      <div class="banner-media">
+        ${banner.image ? `<img src="${banner.image}" alt="${banner.productName || banner.title}">` : `
+          <div class="product-art ${banner.visual || banner.id}" aria-hidden="true">
+            <i></i><i></i><i></i>
+          </div>
+        `}
+      </div>
     </a>
   `).join("");
 }
